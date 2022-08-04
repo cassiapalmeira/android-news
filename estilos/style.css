@@ -1,0 +1,214 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face { /* essa configuração vai "chamar" a fonte que está na pasta 'fontes' */
+    font-family: 'Android';
+    src: url(../fontes/idroid.otf) format('opentype');
+    font-weight: normal;
+}
+
+:root { /* pseudoclasse onde se pode colocar variáveis */
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+    --fonte-android: 'Android', cursive;
+}
+
+* { /* configuração global para retirar a margin e o padding de todos os elementos */
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+a.externo::after {
+    content: '\00A0\1F517'; /* vai inserir um conteúdo após os links que forem da class externo. O conteúdo que será inserido é um espaço e um emoji de link. */
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    min-height: 150px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+header > h1 {
+    margin-bottom: 20px;
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 3em;
+    font-weight: normal;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.705);   
+}
+
+header > p {
+    margin: auto;
+    max-width: 600px;
+    padding: 0px 10px 40px 10px;
+    color: white;
+    font-family: var(--fonte-padrao);
+    font-size: 1.1em;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.705);
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px 30px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.336);
+    text-align: center;
+}
+
+nav > a {
+    padding: 10px 15px;
+    text-decoration: none;
+    transition-duration: .4s;
+    font-weight: bold;
+    color: var(--cor1);
+}
+
+nav > a:hover {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: var(--cor4);
+    color: var(--cor3);
+}
+
+main {
+    min-width: 300px;
+    max-width: 900px;
+    /* Responsividade: as configurações acima vão garantir que a caixa <main> não fique com largura menor que 300px, nem seja maior que 900px (para telas muito grandes) */
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.479);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+main h1 {
+    border-left: 3px double var(--cor0);
+    border-right: 3px double var(--cor0);
+    font-family: var(--fonte-android);
+    font-weight: normal;
+    font-size: 1.8em;
+    text-align: center;
+    color: var(--cor4);
+}
+
+main h2 {
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    font-weight: normal;
+    text-indent: 8px;
+}
+
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 1.8em;
+}
+
+main strong {
+    color: var(--cor4);
+    font-weight: bold;
+}
+
+main a {
+    padding: 2px 6px;
+    background-color: var(--cor0);
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+} 
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+main img {
+    width: 100%; 
+    /* com essa definição, as imagens vão se adaptar à largura da tela, ocupando 100% apenas do container em que estão inseridas; dessa forma, se diminuirmos ou se aumentarmos a tela, não será criada uma barra lateral */
+}
+
+main img.pequena {
+    max-width: 350px;
+    display: block;
+    margin: auto;
+}
+
+div.video {
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    background-color: var(--cor5);
+    position: relative; /* essa propriedade+valor vai fazer com que seja considerado o posicionamento atual da div e ela se manterá adaptável para o caso de alteração no tamanho do navegador */
+    padding-bottom: 58%;
+}
+
+div.video > iframe {
+    position: absolute; /* essa propriedade+valor servirá para que a div com a classe video torne-se o ponto de partida para o posicionamento do iframe. As propriedades abaixo especificam a posição dela dentro da div. */
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.336);
+}
+
+aside > h3 {
+    padding: 10px;
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: var(--cor4);
+    font-family: var(--fonte-android);
+    font-weight: normal;
+    font-size: 1.1em;
+    color: white;
+}
+
+aside > ul {
+    list-style-type: '\2714\00A0\00A0'; /* essa propriedade vai inserir o emoji de check e dois espaços na frente de cada item da lista. Vale ressaltar que esse recurso não é compatível com todo tipo de navegador. */
+    list-style-position: inside;
+    columns: 2; /* vai dividir a lista em duas colunas */
+}
+
+footer {
+    padding: 10px;
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+footer a {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
